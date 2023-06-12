@@ -17,6 +17,12 @@ app.get("/livros", (req, res) => {
   res.status(200).json(livros);
 });
 
+app.get("/livros/:id", (req, res) => {
+  let index = buscaLivro(req.params.id);
+  res.json(livros[index]);
+});
+
+
 app.post("/livros", (req, res) => {
   livros.push(req.body);
   res.status(201).send("Livro cadastrado com sucesso");
