@@ -18,18 +18,6 @@ app.use(express.json());
 
 routes(app);
 
-app.get("/livros", (req, res) => {
-  livros.find((err, livros) => {
-    res.status(200).json(livros);
-  });
-});
-
-app.put("/livros/:id", (req, res) => {
-  let index = buscaLivro(req.params.id);
-  livros[index].titulo = req.body.titulo;
-  res.json(livros);
-});
-
 function buscaLivro(id) {
   return livros.findIndex((livro) => livro.id == id);
 }
