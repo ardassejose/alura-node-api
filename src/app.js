@@ -15,11 +15,6 @@ const app = express();
 
 app.use(express.json());
 
-// const livros = [
-//   { id: 1, titulo: "O Senhor dos Anéis", autor: "J. R. R. Tolkien" },
-//   { id: 2, titulo: "Harry Potter e a Câmara Secreta", autor: "J. K. Rowling" },
-// ];
-
 app.get("/", (req, res) => {
   res.status(200).send("Curso de Node");
 });
