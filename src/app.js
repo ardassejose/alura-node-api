@@ -1,5 +1,6 @@
 import express from "express";
 import db from "./config/dbConnect.js";
+import livros from "./models/Livro.js";
 
 db.on(
   "error",
@@ -14,17 +15,19 @@ const app = express();
 
 app.use(express.json());
 
-const livros = [
-  { id: 1, titulo: "O Senhor dos Anéis", autor: "J. R. R. Tolkien" },
-  { id: 2, titulo: "Harry Potter e a Câmara Secreta", autor: "J. K. Rowling" },
-];
+// const livros = [
+//   { id: 1, titulo: "O Senhor dos Anéis", autor: "J. R. R. Tolkien" },
+//   { id: 2, titulo: "Harry Potter e a Câmara Secreta", autor: "J. K. Rowling" },
+// ];
 
 app.get("/", (req, res) => {
   res.status(200).send("Curso de Node");
 });
 
 app.get("/livros", (req, res) => {
-  res.status(200).json(livros);
+  livros.find((err, livros) => {
+    res.status(200).json(livros);
+  })
 });
 
 app.get("/livros/:id", (req, res) => {
