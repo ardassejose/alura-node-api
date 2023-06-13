@@ -10,7 +10,7 @@ class LivroController {
       });
   };
   static listarLivroPorId = (req, res) => {
-    const { id } = req.params;
+    const id = req.params.id;
     livros
       .findById(id)
       .populate("autor", "nome")
@@ -53,6 +53,13 @@ class LivroController {
       } else {
         res.status(500).send({ message: err.message });
       }
+    });
+  };
+
+  static listarLivrosPorEditora = (req, res) => {
+    const editora = req.params.editora;
+    livros.find({ editora: editora }, {}, (err, livros) => {
+      res.status(200).json(livros);
     });
   };
 }
