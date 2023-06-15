@@ -22,4 +22,8 @@ function buscaLivro(id) {
   return livros.findIndex((livro) => livro.id == id);
 }
 
+function inserirLivro(livro) {
+  livros.push(livro);
+}
+
 export default app;
