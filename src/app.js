@@ -26,4 +26,8 @@ function inserirLivro(livro) {
   livros.push(livro);
 }
 
+function removerNome(nome) {
+  livros.splice(buscaLivro(nome), 1);
+}
+
 export default app;
