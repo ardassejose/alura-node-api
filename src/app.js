@@ -18,8 +18,5 @@ app.use(express.json());
 
 routes(app);
 
-function removerNome(nome) {
-  livros.splice(buscaLivro(nome), 1);
-}
 
 export default app;
