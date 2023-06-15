@@ -18,14 +18,6 @@ app.use(express.json());
 
 routes(app);
 
-function buscaLivro(id) {
-  return livros.findIndex((livro) => livro.id == id);
-}
-
-function inserirLivro(livro) {
-  livros.push(livro);
-}
-
 function removerNome(nome) {
   livros.splice(buscaLivro(nome), 1);
 }
